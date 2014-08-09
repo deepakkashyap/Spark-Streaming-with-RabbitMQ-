@@ -1,0 +1,3 @@
+1.setup Spark
+2.setup RabbitMq-server
+3.eclipse with maven and jdk installed
