@@ -1,3 +1,4 @@
+//compile and run to send data 
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
@@ -9,7 +10,7 @@ public class send {
   public static void main(String[] argv) throws java.io.IOException
   {
     ConnectionFactory factory = new ConnectionFactory();
-    factory.setHost("localhost");
+    factory.setHost("localhost");//define hostname
     Connection connection = factory.newConnection();
     Channel channel = connection.createChannel();
     channel.queueDeclare(QUEUE_NAME, false, false, false, null);
@@ -17,7 +18,7 @@ public class send {
  while (!Thread.currentThread ().isInterrupted ()) 
 {
     channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-    System.out.println(" [x] Sent '" + message + "'");
+    System.out.println(" Sending" + message);
 }
     channel.close();
     connection.close();
